@@ -49,16 +49,17 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text("Assignment App"),
           centerTitle: true,
         ),
-        //bottomNavigation
+        //bottomNavigation with TabBar()
         bottomNavigationBar: Card(
           margin: EdgeInsets.all(20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
-          // color: Color.fromARGB(255, 154, 70, 150),
+
           color: Color.fromARGB(255, 0, 116, 105),
-          // color: Color.fromARGB(255, 45, 45, 105),
+
           shadowColor: Colors.orange,
+          //apply TabBar()
           child: const TabBar(tabs: [
             Tab(
               icon: Icon(Icons.home),
@@ -74,28 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ]),
         ),
-        /*  bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              _onItemTapped(index);
-            },
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Business',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                label: 'School',
-              ),
-            ]), */
+
         //drawer
         drawer: Drawer(
-          // backgroundColor: Colors.greenAccent,
           child: ListView(
             children: [
               DrawerHeader(
