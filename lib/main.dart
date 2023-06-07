@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           color: Color.fromARGB(255, 0, 116, 105),
 
-          shadowColor: Colors.orange,
+         
           //apply TabBar()
           child: const TabBar(tabs: [
             Tab(
