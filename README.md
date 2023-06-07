@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-used Widgets
+# used Widgets
 MaterialApp(),
 Scaffold(),
 Drawer();
@@ -22,7 +22,7 @@ Container()
 bottom navigation using TabBar() to switch pages,
 Navigator.push() method to move Drawer() to page, and Navigator.pop(context) to back from page.
 
-
+#output
 ![1 1](https://github.com/hossain-eee/first-assignment-flutter-ostad/assets/101991583/51948605-c009-453f-8c2c-ca805c2aa81c)
 ![2 2](https://github.com/hossain-eee/first-assignment-flutter-ostad/assets/101991583/30367296-03a3-4ce8-a95d-844204c606ab)
 ![3 3](https://github.com/hossain-eee/first-assignment-flutter-ostad/assets/101991583/70194975-90bf-4f90-8dcb-d1906b272f77)
