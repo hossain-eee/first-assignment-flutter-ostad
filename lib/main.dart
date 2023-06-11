@@ -18,6 +18,14 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   TextEditingController searchTextEditingController = TextEditingController();
+  //snackbar method
+  void showSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Clicked on photo!"),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +85,9 @@ class HomeScreen extends StatelessWidget {
                   // height: 200,
                 ), */
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showSnackBar(context);
+                  },
                   child: Column(
                     children: [
                       Image.network(
@@ -90,7 +100,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showSnackBar(context);
+                  },
                   child: Column(
                     children: [
                       Image.network(
@@ -103,7 +115,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showSnackBar(context);
+                  },
                   child: Column(
                     children: [
                       Image.network(
@@ -116,7 +130,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showSnackBar(context);
+                  },
                   child: Column(
                     children: [
                       Image.network(
@@ -129,7 +145,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showSnackBar(context);
+                  },
                   child: Column(
                     children: [
                       Image.network(
@@ -142,7 +160,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showSnackBar(context);
+                  },
                   child: Column(
                     children: [
                       Image.network(
