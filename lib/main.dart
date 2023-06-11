@@ -9,15 +9,38 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen(),);
+    return MaterialApp(
+      home: HomeScreen(),
+    );
   }
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
+   HomeScreen({super.key});
+  TextEditingController searchTextEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Photo Gallery"),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              child: Text("Welcome to My Photo Gallery!"),
+            ),
+            TextField(
+              controller: searchTextEditingController,
+              decoration: const InputDecoration(
+                icon: Icon(Icons.search),
+                hintText: "Search",
+              ),
+              
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
