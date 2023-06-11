@@ -3,14 +3,19 @@
 A new Flutter project.
 
 ## Getting Started
+We are creating an app which has a title and search field and 6 images which are actually buttons because these images are child of OutlinedButton. And below the image 3 list which contains image, title and subtitle and at last an icon button to upload image . Images and IconButton show snackbar messages when clicked.  We do all of these by 
 
-This project is a starting point for a Flutter application.
+Grid image by Wrap() Widget
+Most Challenging caption of image is build by Stack(), Position() and FractionalSizedBox()
+list of title and subtitle is build by ListView() and ListTile()
+And at last add a icon button to upload 
 
-A few resources to get you started if this is your first Flutter project:
+# app looks like 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![sample](https://github.com/hossain-eee/first-assignment-flutter-ostad/assets/101991583/55d2d864-1aec-48e0-9f22-d9a4070ffa6e)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# when click on Image show sanckbar message
+![sample2](https://github.com/hossain-eee/first-assignment-flutter-ostad/assets/101991583/6c3f3dcd-40ad-49f8-8054-b09d9218d282)
+
+# when click on IconButton (bottom right) show sanckbar message
+![sample3](https://github.com/hossain-eee/first-assignment-flutter-ostad/assets/101991583/635b2b84-e83b-45f1-80c1-00c304c38671)
