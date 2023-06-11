@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   TextEditingController searchTextEditingController = TextEditingController();
   //snackbar method
-  void showSnackBar(BuildContext context,text) {
+  void showSnackBar(BuildContext context, text) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(text),
@@ -86,13 +86,13 @@ class HomeScreen extends StatelessWidget {
                 ), */
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context,"Clicked on photo!");
+                    showSnackBar(context, "Clicked on photo!");
                   },
                   child: Column(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                        width: 150,
+                        width: 100,
                         // height: 200,
                       ),
                       Text("Caption"),
@@ -101,13 +101,13 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context,"Clicked on photo!");
+                    showSnackBar(context, "Clicked on photo!");
                   },
                   child: Column(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                        width: 150,
+                        width: 100,
                         // height: 200,
                       ),
                       Text("Caption"),
@@ -116,13 +116,13 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context,"Clicked on photo!");
+                    showSnackBar(context, "Clicked on photo!");
                   },
                   child: Column(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                        width: 150,
+                        width: 100,
                         // height: 200,
                       ),
                       Text("Caption"),
@@ -131,13 +131,13 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context,"Clicked on photo!");
+                    showSnackBar(context, "Clicked on photo!");
                   },
                   child: Column(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                        width: 150,
+                        width: 100,
                         // height: 200,
                       ),
                       Text("Caption"),
@@ -146,13 +146,13 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context,"Clicked on photo!");
+                    showSnackBar(context, "Clicked on photo!");
                   },
                   child: Column(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                        width: 150,
+                        width: 100,
                         // height: 200,
                       ),
                       Text("Caption"),
@@ -161,13 +161,13 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context,"Clicked on photo!");
+                    showSnackBar(context, "Clicked on photo!");
                   },
                   child: Column(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                        width: 150,
+                        width: 100,
                         // height: 200,
                       ),
                       Text("Caption"),
@@ -205,16 +205,22 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            IconButton(
-              alignment: Alignment.centerLeft,
-              onPressed: () {
-                showSnackBar(context,"Photos Uploaded Successfully!");
-              },
-              icon: Icon(
-                Icons.cloud_upload,
-                color: Colors.blue,
-                size: 50,
+            SizedBox(
+              width: double.infinity,
+              child: IconButton(
+                alignment: Alignment.bottomRight,
+                onPressed: () {
+                  showSnackBar(context, "Photos Uploaded Successfully!");
+                },
+                icon: Icon(
+                  Icons.cloud_upload,
+                  color: Colors.blue,
+                  size: 50,
+                ),
               ),
+            ),
+            SizedBox(
+              height: 20,
             ),
           ],
         ),
