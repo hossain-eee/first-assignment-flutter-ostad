@@ -17,12 +17,15 @@ class MyApp extends StatelessWidget {
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
+
   TextEditingController searchTextEditingController = TextEditingController();
+
   //snackbar method
   void showSnackBar(BuildContext context, text) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(text),
+        duration: const Duration(milliseconds: 500),
       ),
     );
   }
@@ -50,127 +53,230 @@ class HomeScreen extends StatelessWidget {
 
             //photo
             Wrap(
-              // spacing: 10,
-
+              spacing: 5,
+              runSpacing: 5,
               children: [
-                /* Image.network(
-                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                  width: 200,
 
-                  // height: 200,
-                ),
-                Image.network(
-                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                  width: 200,
-                  // height: 200,
-                ),
-                Image.network(
-                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                  width: 200,
-                  // height: 200,
-                ),
-                Image.network(
-                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                  width: 200,
-                  // height: 200,
-                ),
-                Image.network(
-                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                  width: 200,
-                  // height: 200,
-                ),
-                Image.network(
-                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                  width: 200,
-                  // height: 200,
-                ), */
                 OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    // alignment: Alignment.topLeft,
+                    padding: EdgeInsets.zero,
+
+                  ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
                   },
-                  child: Column(
+                  child: Stack(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
+
                         // height: 200,
                       ),
-                      Text("Caption"),
+                       const Positioned(
+                        bottom: 5,
+                        left: 0,
+                        right: 0,
+                        child: Text(
+                          "Caption",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+
+                            color: Colors.white,
+
+
+
+
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
                 OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    // alignment: Alignment.topLeft,
+                    padding: EdgeInsets.zero,
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.cyan,
+                  ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
                   },
-                  child: Column(
+                  child: Stack(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
+
                         // height: 200,
                       ),
-                      Text("Caption"),
+                      Positioned(
+                        bottom: 5,
+                        left: 0,
+                        right: 0,
+                        child: Text(
+                          "Caption",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+
+                            color: Colors.white,
+
+
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
                 OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    // alignment: Alignment.topLeft,
+                    padding: EdgeInsets.zero,
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.cyan,
+                  ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
                   },
-                  child: Column(
+                  child: Stack(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
+
                         // height: 200,
                       ),
-                      Text("Caption"),
+                      Positioned(
+                        bottom: 5,
+                        left: 0,
+                        right: 0,
+                        child: Text(
+                          "Caption",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+
+                            color: Colors.white,
+
+
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
                 OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    // alignment: Alignment.topLeft,
+                    padding: EdgeInsets.zero,
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.cyan,
+                  ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
                   },
-                  child: Column(
+                  child: Stack(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
+
                         // height: 200,
                       ),
-                      Text("Caption"),
+                      Positioned(
+                        bottom: 5,
+                        left: 0,
+                        right: 0,
+                        child: Text(
+                          "Caption",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+
+                            color: Colors.white,
+
+
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
                 OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    // alignment: Alignment.topLeft,
+                    padding: EdgeInsets.zero,
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.cyan,
+                  ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
                   },
-                  child: Column(
+                  child: Stack(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
+
                         // height: 200,
                       ),
-                      Text("Caption"),
+                      Positioned(
+                        bottom: 5,
+                        left: 0,
+                        right: 0,
+                        child: Text(
+                          "Caption",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+
+                            color: Colors.white,
+
+
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
                 OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    // alignment: Alignment.topLeft,
+                    padding: EdgeInsets.zero,
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.cyan,
+                  ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
                   },
-                  child: Column(
+                  child: Stack(
                     children: [
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
+
                         // height: 200,
                       ),
-                      Text("Caption"),
+                      Positioned(
+                        bottom: 5,
+                        left: 0,
+                        right: 0,
+                        child: Text(
+                          "Caption",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+
+                            color: Colors.white,
+
+
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -182,6 +288,7 @@ class HomeScreen extends StatelessWidget {
                 ListTile(
                   leading: Image.network(
                     "https://cdn.bajajauto.com/-/media/Assets/bajajauto/bikes/BikeListing/Pulsar/PulsarNS125.ashx",
+                    // "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                     width: 50,
                   ),
                   title: Text("Sample photo 1"),
@@ -190,18 +297,20 @@ class HomeScreen extends StatelessWidget {
                 ListTile(
                   leading: Image.network(
                     "https://cdn.bajajauto.com/-/media/Assets/bajajauto/bikes/BikeListing/Pulsar/PulsarNS125.ashx",
+                    // "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                     width: 50,
                   ),
-                  title: Text("Sample photo 1"),
-                  subtitle: Text("Category 1"),
+                  title: Text("Sample photo 2"),
+                  subtitle: Text("Category 2"),
                 ),
                 ListTile(
                   leading: Image.network(
                     "https://cdn.bajajauto.com/-/media/Assets/bajajauto/bikes/BikeListing/Pulsar/PulsarNS125.ashx",
+                    // "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                     width: 50,
                   ),
-                  title: Text("Sample photo 1"),
-                  subtitle: Text("Category 1"),
+                  title: Text("Sample photo 3"),
+                  subtitle: Text("Category 3"),
                 ),
               ],
             ),
