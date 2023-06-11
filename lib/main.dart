@@ -19,10 +19,10 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   TextEditingController searchTextEditingController = TextEditingController();
   //snackbar method
-  void showSnackBar(BuildContext context) {
+  void showSnackBar(BuildContext context,text) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("Clicked on photo!"),
+        content: Text(text),
       ),
     );
   }
@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                 ), */
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context);
+                    showSnackBar(context,"Clicked on photo!");
                   },
                   child: Column(
                     children: [
@@ -101,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context);
+                    showSnackBar(context,"Clicked on photo!");
                   },
                   child: Column(
                     children: [
@@ -116,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context);
+                    showSnackBar(context,"Clicked on photo!");
                   },
                   child: Column(
                     children: [
@@ -131,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context);
+                    showSnackBar(context,"Clicked on photo!");
                   },
                   child: Column(
                     children: [
@@ -146,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context);
+                    showSnackBar(context,"Clicked on photo!");
                   },
                   child: Column(
                     children: [
@@ -161,7 +161,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    showSnackBar(context);
+                    showSnackBar(context,"Clicked on photo!");
                   },
                   child: Column(
                     children: [
@@ -204,6 +204,17 @@ class HomeScreen extends StatelessWidget {
                   subtitle: Text("Category 1"),
                 ),
               ],
+            ),
+            IconButton(
+              alignment: Alignment.centerLeft,
+              onPressed: () {
+                showSnackBar(context,"Photos Uploaded Successfully!");
+              },
+              icon: Icon(
+                Icons.cloud_upload,
+                color: Colors.blue,
+                size: 50,
+              ),
             ),
           ],
         ),
