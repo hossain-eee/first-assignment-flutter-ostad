@@ -43,18 +43,19 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              margin: EdgeInsets.only(top: 10),
               padding: const EdgeInsets.all(10),
               child: const Text(
                 "Welcome to My Photo Gallery!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             //space before search bar
-            SizedBox(height: 10,),
+            SizedBox(height: 15,),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: TextField(
@@ -69,11 +70,11 @@ class HomeScreen extends StatelessWidget {
             ),
 
             //space before image
-            SizedBox(height: 10,),
+            SizedBox(height: 15,),
             //photo
             Wrap(
-              spacing: 5,
-              runSpacing: 5,
+              spacing: 7,
+              runSpacing: 7,
               children: [
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
@@ -88,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
-                        width: 100,
+                        width: 130,
 
                         // height: 150,
                       ),
@@ -131,7 +132,7 @@ class HomeScreen extends StatelessWidget {
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
-                        width: 100,
+                        width: 130,
 
                         // height: 150,
                       ),
@@ -174,7 +175,7 @@ class HomeScreen extends StatelessWidget {
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
-                        width: 100,
+                        width: 130,
 
                         // height: 150,
                       ),
@@ -217,7 +218,7 @@ class HomeScreen extends StatelessWidget {
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
-                        width: 100,
+                        width: 130,
 
                         // height: 150,
                       ),
@@ -260,7 +261,7 @@ class HomeScreen extends StatelessWidget {
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
-                        width: 100,
+                        width: 130,
 
                         // height: 150,
                       ),
@@ -303,7 +304,7 @@ class HomeScreen extends StatelessWidget {
                       Image.network(
                         "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
-                        width: 100,
+                        width: 130,
 
                         // height: 150,
                       ),
