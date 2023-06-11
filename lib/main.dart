@@ -175,7 +175,36 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+            ListView(
+              shrinkWrap: true,
+              children: [
+                ListTile(
+                  leading: Image.network(
+                    "https://cdn.bajajauto.com/-/media/Assets/bajajauto/bikes/BikeListing/Pulsar/PulsarNS125.ashx",
+                    width: 50,
+                  ),
+                  title: Text("Sample photo 1"),
+                  subtitle: Text("Category 1"),
+                ),
+                ListTile(
+                  leading: Image.network(
+                    "https://cdn.bajajauto.com/-/media/Assets/bajajauto/bikes/BikeListing/Pulsar/PulsarNS125.ashx",
+                    width: 50,
+                  ),
+                  title: Text("Sample photo 1"),
+                  subtitle: Text("Category 1"),
+                ),
+                ListTile(
+                  leading: Image.network(
+                    "https://cdn.bajajauto.com/-/media/Assets/bajajauto/bikes/BikeListing/Pulsar/PulsarNS125.ashx",
+                    width: 50,
+                  ),
+                  title: Text("Sample photo 1"),
+                  subtitle: Text("Category 1"),
+                ),
+              ],
+            ),
           ],
         ),
       ),
