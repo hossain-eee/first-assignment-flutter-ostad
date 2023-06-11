@@ -33,35 +33,52 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text("Photo Gallery"),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
+
         child: Column(
           children: [
             Container(
-              child: Text("Welcome to My Photo Gallery!"),
+              padding: const EdgeInsets.all(10),
+              child: const Text(
+                "Welcome to My Photo Gallery!",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-            TextField(
-              controller: searchTextEditingController,
-              readOnly: true,
-              decoration: const InputDecoration(
-                icon: Icon(Icons.search),
-                hintText: "Search",
+            //space before search bar
+            SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: TextField(
+                controller: searchTextEditingController,
+                // readOnly: true,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  hintText: "Search",
+                  border: OutlineInputBorder()
+                ),
               ),
             ),
 
+            //space before image
+            SizedBox(height: 10,),
             //photo
             Wrap(
               spacing: 5,
               runSpacing: 5,
               children: [
-
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     // alignment: Alignment.topLeft,
                     padding: EdgeInsets.zero,
-
                   ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
@@ -73,22 +90,28 @@ class HomeScreen extends StatelessWidget {
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
 
-                        // height: 200,
+                        // height: 150,
                       ),
-                       const Positioned(
-                        bottom: 5,
+                       Positioned(
+                        bottom: 0,
                         left: 0,
                         right: 0,
-                        child: Text(
-                          "Caption",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
+                        child: FractionallySizedBox(
+                          widthFactor: 0.6,
+                          child: Container(
 
-                            color: Colors.white,
-
-
-
-
+                            height: 25,
+                            // color: Colors.grey.withOpacity(0.4),
+                            color: Colors.blueGrey.withOpacity(0.4),
+                            child: const Center(
+                              child: Text(
+                                "Caption",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       )
@@ -99,8 +122,6 @@ class HomeScreen extends StatelessWidget {
                   style: OutlinedButton.styleFrom(
                     // alignment: Alignment.topLeft,
                     padding: EdgeInsets.zero,
-                    backgroundColor: Colors.orange,
-                    foregroundColor: Colors.cyan,
                   ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
@@ -112,57 +133,28 @@ class HomeScreen extends StatelessWidget {
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
 
-                        // height: 200,
-                      ),
-                      Positioned(
-                        bottom: 5,
-                        left: 0,
-                        right: 0,
-                        child: Text(
-                          "Caption",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-
-                            color: Colors.white,
-
-
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    // alignment: Alignment.topLeft,
-                    padding: EdgeInsets.zero,
-                    backgroundColor: Colors.orange,
-                    foregroundColor: Colors.cyan,
-                  ),
-                  onPressed: () {
-                    showSnackBar(context, "Clicked on photo!");
-                  },
-                  child: Stack(
-                    children: [
-                      Image.network(
-                        "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
-                        // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
-                        width: 100,
-
-                        // height: 200,
+                        // height: 150,
                       ),
                       Positioned(
-                        bottom: 5,
+                        bottom: 0,
                         left: 0,
                         right: 0,
-                        child: Text(
-                          "Caption",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
+                        child: FractionallySizedBox(
+                          widthFactor: 0.6,
+                          child: Container(
 
-                            color: Colors.white,
-
-
+                            height: 25,
+                            // color: Colors.grey.withOpacity(0.4),
+                            color: Colors.blueGrey.withOpacity(0.4),
+                            child: const Center(
+                              child: Text(
+                                "Caption",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       )
@@ -173,8 +165,6 @@ class HomeScreen extends StatelessWidget {
                   style: OutlinedButton.styleFrom(
                     // alignment: Alignment.topLeft,
                     padding: EdgeInsets.zero,
-                    backgroundColor: Colors.orange,
-                    foregroundColor: Colors.cyan,
                   ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
@@ -186,20 +176,28 @@ class HomeScreen extends StatelessWidget {
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
 
-                        // height: 200,
+                        // height: 150,
                       ),
                       Positioned(
-                        bottom: 5,
+                        bottom: 0,
                         left: 0,
                         right: 0,
-                        child: Text(
-                          "Caption",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
+                        child: FractionallySizedBox(
+                          widthFactor: 0.6,
+                          child: Container(
 
-                            color: Colors.white,
-
-
+                            height: 25,
+                            // color: Colors.grey.withOpacity(0.4),
+                            color: Colors.blueGrey.withOpacity(0.4),
+                            child: const Center(
+                              child: Text(
+                                "Caption",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       )
@@ -210,8 +208,6 @@ class HomeScreen extends StatelessWidget {
                   style: OutlinedButton.styleFrom(
                     // alignment: Alignment.topLeft,
                     padding: EdgeInsets.zero,
-                    backgroundColor: Colors.orange,
-                    foregroundColor: Colors.cyan,
                   ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
@@ -223,20 +219,28 @@ class HomeScreen extends StatelessWidget {
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
 
-                        // height: 200,
+                        // height: 150,
                       ),
                       Positioned(
-                        bottom: 5,
+                        bottom: 0,
                         left: 0,
                         right: 0,
-                        child: Text(
-                          "Caption",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
+                        child: FractionallySizedBox(
+                          widthFactor: 0.6,
+                          child: Container(
 
-                            color: Colors.white,
-
-
+                            height: 25,
+                            // color: Colors.grey.withOpacity(0.4),
+                            color: Colors.blueGrey.withOpacity(0.4),
+                            child: const Center(
+                              child: Text(
+                                "Caption",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       )
@@ -247,8 +251,6 @@ class HomeScreen extends StatelessWidget {
                   style: OutlinedButton.styleFrom(
                     // alignment: Alignment.topLeft,
                     padding: EdgeInsets.zero,
-                    backgroundColor: Colors.orange,
-                    foregroundColor: Colors.cyan,
                   ),
                   onPressed: () {
                     showSnackBar(context, "Clicked on photo!");
@@ -260,26 +262,80 @@ class HomeScreen extends StatelessWidget {
                         // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
                         width: 100,
 
-                        // height: 200,
+                        // height: 150,
                       ),
                       Positioned(
-                        bottom: 5,
+                        bottom: 0,
                         left: 0,
                         right: 0,
-                        child: Text(
-                          "Caption",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
+                        child: FractionallySizedBox(
+                          widthFactor: 0.6,
+                          child: Container(
 
-                            color: Colors.white,
-
-
+                            height: 25,
+                            // color: Colors.grey.withOpacity(0.4),
+                            color: Colors.blueGrey.withOpacity(0.4),
+                            child: const Center(
+                              child: Text(
+                                "Caption",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       )
                     ],
                   ),
                 ),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    // alignment: Alignment.topLeft,
+                    padding: EdgeInsets.zero,
+                  ),
+                  onPressed: () {
+                    showSnackBar(context, "Clicked on photo!");
+                  },
+                  child: Stack(
+                    children: [
+                      Image.network(
+                        "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        // "https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/brands/einstiegsseite/1280x854_P90351044_highRes_the-new-bmw-8-series.jpg",
+                        width: 100,
+
+                        // height: 150,
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: FractionallySizedBox(
+                          widthFactor: 0.6,
+                          child: Container(
+
+                            height: 25,
+                            // color: Colors.grey.withOpacity(0.4),
+                            color: Colors.blueGrey.withOpacity(0.4),
+                            child: const Center(
+                              child: Text(
+                                "Caption",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+
+
+
               ],
             ),
             ListView(
