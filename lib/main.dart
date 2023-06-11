@@ -16,8 +16,9 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
+  HomeScreen({super.key});
   TextEditingController searchTextEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,12 +33,129 @@ class HomeScreen extends StatelessWidget {
             ),
             TextField(
               controller: searchTextEditingController,
+              readOnly: true,
               decoration: const InputDecoration(
                 icon: Icon(Icons.search),
                 hintText: "Search",
               ),
-              
             ),
+
+            //photo
+            Wrap(
+              // spacing: 10,
+
+              children: [
+                /* Image.network(
+                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                  width: 200,
+
+                  // height: 200,
+                ),
+                Image.network(
+                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                  width: 200,
+                  // height: 200,
+                ),
+                Image.network(
+                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                  width: 200,
+                  // height: 200,
+                ),
+                Image.network(
+                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                  width: 200,
+                  // height: 200,
+                ),
+                Image.network(
+                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                  width: 200,
+                  // height: 200,
+                ),
+                Image.network(
+                  "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                  width: 200,
+                  // height: 200,
+                ), */
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Image.network(
+                        "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        width: 150,
+                        // height: 200,
+                      ),
+                      Text("Caption"),
+                    ],
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Image.network(
+                        "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        width: 150,
+                        // height: 200,
+                      ),
+                      Text("Caption"),
+                    ],
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Image.network(
+                        "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        width: 150,
+                        // height: 200,
+                      ),
+                      Text("Caption"),
+                    ],
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Image.network(
+                        "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        width: 150,
+                        // height: 200,
+                      ),
+                      Text("Caption"),
+                    ],
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Image.network(
+                        "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        width: 150,
+                        // height: 200,
+                      ),
+                      Text("Caption"),
+                    ],
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Image.network(
+                        "https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?auto=compress&cs=tinysrgb&w=300",
+                        width: 150,
+                        // height: 200,
+                      ),
+                      Text("Caption"),
+                    ],
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
