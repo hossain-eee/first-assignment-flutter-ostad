@@ -33,13 +33,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         title: Text("Photo Gallery"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-
         child: Column(
           children: [
             Container(
@@ -55,22 +53,25 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             //space before search bar
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: TextField(
                 controller: searchTextEditingController,
                 // readOnly: true,
                 decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  hintText: "Search",
-                  border: OutlineInputBorder()
-                ),
+                    prefixIcon: Icon(Icons.search),
+                    hintText: "Search",
+                    border: OutlineInputBorder()),
               ),
             ),
 
             //space before image
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             //photo
             Wrap(
               spacing: 7,
@@ -93,14 +94,13 @@ class HomeScreen extends StatelessWidget {
 
                         // height: 150,
                       ),
-                       Positioned(
+                      Positioned(
                         bottom: 0,
                         left: 0,
                         right: 0,
                         child: FractionallySizedBox(
                           widthFactor: 0.6,
                           child: Container(
-
                             height: 25,
                             // color: Colors.grey.withOpacity(0.4),
                             color: Colors.blueGrey.withOpacity(0.4),
@@ -143,7 +143,6 @@ class HomeScreen extends StatelessWidget {
                         child: FractionallySizedBox(
                           widthFactor: 0.6,
                           child: Container(
-
                             height: 25,
                             // color: Colors.grey.withOpacity(0.4),
                             color: Colors.blueGrey.withOpacity(0.4),
@@ -186,7 +185,6 @@ class HomeScreen extends StatelessWidget {
                         child: FractionallySizedBox(
                           widthFactor: 0.6,
                           child: Container(
-
                             height: 25,
                             // color: Colors.grey.withOpacity(0.4),
                             color: Colors.blueGrey.withOpacity(0.4),
@@ -229,7 +227,6 @@ class HomeScreen extends StatelessWidget {
                         child: FractionallySizedBox(
                           widthFactor: 0.6,
                           child: Container(
-
                             height: 25,
                             // color: Colors.grey.withOpacity(0.4),
                             color: Colors.blueGrey.withOpacity(0.4),
@@ -272,7 +269,6 @@ class HomeScreen extends StatelessWidget {
                         child: FractionallySizedBox(
                           widthFactor: 0.6,
                           child: Container(
-
                             height: 25,
                             // color: Colors.grey.withOpacity(0.4),
                             color: Colors.blueGrey.withOpacity(0.4),
@@ -315,7 +311,6 @@ class HomeScreen extends StatelessWidget {
                         child: FractionallySizedBox(
                           widthFactor: 0.6,
                           child: Container(
-
                             height: 25,
                             // color: Colors.grey.withOpacity(0.4),
                             color: Colors.blueGrey.withOpacity(0.4),
@@ -334,13 +329,11 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
-
-
               ],
             ),
             ListView(
               shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               children: [
                 ListTile(
                   leading: Image.network(
