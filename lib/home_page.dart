@@ -10,7 +10,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   //Task list form model Task instance
-  List<Task> todo = [
+ final List<Task> _todo = [
     Task('Flutter 1', 'Conducted by Ostad', '2'),
     Task('Flutter 2', 'Conducted by Ostad', '2'),
     Task('Flutter 3', 'Conducted by Ostad', '2'),
@@ -20,8 +20,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   //add new item to todo list
-  void addNewTodo() {
-    todo.add(Task(
+  void _addNewTodo() {
+    _todo.add(Task(
       _titleController.text,
       _descriptionController.text,
       _deadlineController.text,
@@ -30,8 +30,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 //delete todo item
-  void deleteTodoItem(int index) {
-    todo.removeAt(index);
+  void _deleteTodoItem(int index) {
+    _todo.removeAt(index);
     setState(() {});
   }
 
@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
  final TextEditingController _deadlineController = TextEditingController();
 
   //TextFiled for title, description, deadline
-  Widget textField(
+  Widget _textField(
       String hintText, int maxLines, TextEditingController controller,
       [double height = 0]) {
     return TextField(
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   //dialog box to add new task by FAB
-  void showDialogBox(BuildContext context) {
+  void _showDialogBox(BuildContext context) {
     showDialog(
       useSafeArea: true,
       context: context,
@@ -79,17 +79,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   //title field
-                  textField('Title', 1, _titleController),
+                  _textField('Title', 1, _titleController),
                   SizedBox(
                     height: 10,
                   ),
                   //descriptiion field
-                  textField("Description", 5, _descriptionController, 4),
+                  _textField("Description", 5, _descriptionController, 4),
                   SizedBox(
                     height: 10,
                   ),
                   //deadline field
-                  textField('Days required', 1, _deadlineController)
+                  _textField('Days required', 1, _deadlineController)
                 ],
               ),
               actions: [
@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     if (_titleController.text.trim().isNotEmpty &&
                         _descriptionController.text.trim().isNotEmpty &&
                         _deadlineController.text.trim().isNotEmpty) {
-                      addNewTodo(); //add new todo item
+                      _addNewTodo(); //add new todo item
                     }
 
                     _titleController.clear();
@@ -134,23 +134,23 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           // showDialogBox(context);
 
-          showDialogBox(context);
+          _showDialogBox(context);
         },
         child: const Icon(Icons.add),
       ),
       body: ListView.builder(
-        itemCount: todo.length,
+        itemCount: _todo.length,
         itemBuilder: (context, index) {
           //gesture tap effect on Each list
           return GestureDetector(
             onLongPress: () {
               //called bottomsheet
-              showBottomSheets(context, index);
+              _showBottomSheets(context, index);
               setState(() {});
             },
             child: ListTile(
-              title: Text(todo[index].title),
-              subtitle: Text(todo[index].description),
+              title: Text(_todo[index].title),
+              subtitle: Text(_todo[index].description),
             ),
           );
         },
@@ -159,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 //method for showBottomSheet, here will show bottomsheet with specific task details and with Delete button to delete the click item
-  void showBottomSheets(BuildContext context, int currentIndex) {
+  void _showBottomSheets(BuildContext context, int currentIndex) {
     Scaffold.of(context).showBottomSheet<void>(
       (BuildContext context) {
         return GestureDetector(
@@ -186,18 +186,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 20,
                 ),
                 Text(
-                  'Title: ${todo[currentIndex].title}',
+                  'Title: ${_todo[currentIndex].title}',
                   textAlign: TextAlign.left,
                 ),
-                Text('Description: ${todo[currentIndex].description}'),
-                Text('Days Required: ${todo[currentIndex].deadline}'),
+                Text('Description: ${_todo[currentIndex].description}'),
+                Text('Days Required: ${_todo[currentIndex].deadline}'),
                 SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
                     child: const Text('Delete'),
                     onPressed: () {
-                      deleteTodoItem(currentIndex);
+                      _deleteTodoItem(currentIndex);
                       if (mounted) {
                         setState(() {});
                       }
