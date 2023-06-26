@@ -8,7 +8,7 @@
 
 #BottomSheet close when delete any item of todo or double click on bottomSheet
 
-# Double click on bottomsheet to close bottomSheet
+#Double click on bottomsheet to close bottomSheet
 
 ![Screenshot_1687795718](https://github.com/hossain-eee/flutter-assignment-ostad/assets/101991583/c29c0800-adb3-4f88-af10-97117146630c)
 ![Screenshot_1687795763](https://github.com/hossain-eee/flutter-assignment-ostad/assets/101991583/a539c356-597a-4485-9307-68b5be02fff6)
