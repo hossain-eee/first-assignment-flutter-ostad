@@ -18,30 +18,27 @@ class _MyHomePageState extends State<MyHomePage> {
     Task('Flutter 5', 'Conducted by Ostad', '2'),
   ];
 
-  //valueNotifier to maintain state
 
-  // final ValueNotifier<Task> valueNotifier = ValueNotifier()
-
-  //add todo
+  //add new item to todo list
   void addNewTodo() {
     todo.add(Task(
-      titleController.text,
-      descriptionController.text,
-      deadlineController.text,
+      _titleController.text,
+      _descriptionController.text,
+      _deadlineController.text,
       // int.parse(deadlineController.text),
     ));
   }
 
-//delete todo
+//delete todo item
   void deleteTodoItem(int index) {
     todo.removeAt(index);
     setState(() {});
   }
 
   //Controller for TextFiled
-  TextEditingController titleController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
-  TextEditingController deadlineController = TextEditingController();
+ final TextEditingController _titleController = TextEditingController();
+ final TextEditingController _descriptionController = TextEditingController();
+ final TextEditingController _deadlineController = TextEditingController();
 
   //TextFiled for title, description, deadline
   Widget textField(
@@ -67,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  //dialog box to add new task for FAB
+  //dialog box to add new task by FAB
   void showDialogBox(BuildContext context) {
     showDialog(
       useSafeArea: true,
@@ -82,32 +79,32 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   //title field
-                  textField('Title', 1, titleController),
+                  textField('Title', 1, _titleController),
                   SizedBox(
                     height: 10,
                   ),
                   //descriptiion field
-                  textField("Description", 5, descriptionController, 4),
+                  textField("Description", 5, _descriptionController, 4),
                   SizedBox(
                     height: 10,
                   ),
                   //deadline field
-                  textField('Days required', 1, deadlineController)
+                  textField('Days required', 1, _deadlineController)
                 ],
               ),
               actions: [
                 TextButton(
                   onPressed: () {
                     //condition for add new todo that every controller has to have value
-                    if (titleController.text.trim().isNotEmpty &&
-                        descriptionController.text.trim().isNotEmpty &&
-                        deadlineController.text.trim().isNotEmpty) {
+                    if (_titleController.text.trim().isNotEmpty &&
+                        _descriptionController.text.trim().isNotEmpty &&
+                        _deadlineController.text.trim().isNotEmpty) {
                       addNewTodo(); //add new todo item
                     }
 
-                    titleController.clear();
-                    descriptionController.clear();
-                    deadlineController.clear();
+                    _titleController.clear();
+                    _descriptionController.clear();
+                    _deadlineController.clear();
 
                     if (mounted) {
                       setState(() {});
