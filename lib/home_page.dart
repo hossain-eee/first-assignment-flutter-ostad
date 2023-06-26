@@ -18,8 +18,6 @@ class _MyHomePageState extends State<MyHomePage> {
     Task('Flutter 5', 'Conducted by Ostad', '2'),
   ];
 
-  //index for specific item
-  int idices = 0;
   //valueNotifier to maintain state
 
   // final ValueNotifier<Task> valueNotifier = ValueNotifier()
@@ -72,41 +70,54 @@ class _MyHomePageState extends State<MyHomePage> {
   //dialog box to add new task for FAB
   void showDialogBox(BuildContext context) {
     showDialog(
+      useSafeArea: true,
       context: context,
       builder: (_) {
-        return SingleChildScrollView(
-          child: AlertDialog(
-            title: Text("Add Task"),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                //title field
-                textField('Title', 1, titleController),
-                SizedBox(
-                  height: 10,
+        return Align(
+          alignment: Alignment.center,
+          child: SingleChildScrollView(
+            child: AlertDialog(
+              title: Text("Add Task"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  //title field
+                  textField('Title', 1, titleController),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  //descriptiion field
+                  textField("Description", 5, descriptionController, 4),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  //deadline field
+                  textField('Days required', 1, deadlineController)
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    //condition for add new todo that every controller has to have value
+                    if (titleController.text.trim().isNotEmpty &&
+                        descriptionController.text.trim().isNotEmpty &&
+                        deadlineController.text.trim().isNotEmpty) {
+                      addNewTodo(); //add new todo item
+                    }
+
+                    titleController.clear();
+                    descriptionController.clear();
+                    deadlineController.clear();
+
+                    if (mounted) {
+                      setState(() {});
+                    }
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Save'),
                 ),
-                //descriptiion field
-                textField("Description", 5, descriptionController, 4),
-                SizedBox(
-                  height: 10,
-                ),
-                //deadline field
-                textField('Days required', 1, deadlineController)
               ],
             ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  addNewTodo();
-                  titleController.clear();
-                  descriptionController.clear();
-                  deadlineController.clear();
-                  Navigator.pop(context);
-                  setState(() {});
-                },
-                child: const Text('Save'),
-              ),
-            ],
           ),
         );
       },
@@ -125,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // showDialogBox(context);
-          print("fab button press");
+
           showDialogBox(context);
         },
         child: const Icon(Icons.add),
@@ -133,40 +144,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView.builder(
         itemCount: todo.length,
         itemBuilder: (context, index) {
-          idices = index;
           //gesture tap effect on Each list
           return GestureDetector(
-            onTap: () {
-              /* Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) {
-                    return Column(
-                      children: [
-                        // DetailsTask(),
-                         DetailsTask(
-
-
-                          todo: todo[index],
-                          index: index,
-                          deleteFunction: deleteTodoItem,
-                          scaffold: Scaffold(appBar: AppBar(title: Text("Scaffold"),),),
-                        ), 
-                      ],
-                    );
-                  },
-                ),
-              ); */
-
-              // showBottomSheet();
-              showBottomSheets(context);
+            onLongPress: () {
+              //called bottomsheet
+              showBottomSheets(context, index);
               setState(() {});
-              /*   DetailsTak(
-                  title: todo[index].title,
-                  subTitle: todo[index].description,
-                  index: index);
-              print("Press in the list of index $index"); */
-              print("Press in the list of index $index");
             },
             child: ListTile(
               title: Text(todo[index].title),
@@ -178,64 +161,55 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-/*   void showBottomSheet() {
-    showModalBottomSheet(
-        context: context,
-        builder: (_) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title: Text("Title : ${todo[idices].title}"),
-                // title: Text("Title :"),
-                subtitle: Text(
-                    "Description : ${todo[idices].description}"),
-                    // "Description : "),
-              )
-            ],
-          );
-        });
-  } */
-
 //method for showBottomSheet, here will show bottomsheet with specific task details and with Delete button to delete the click item
-  void showBottomSheets(BuildContext context) {
+  void showBottomSheets(BuildContext context, int currentIndex) {
     Scaffold.of(context).showBottomSheet<void>(
       (BuildContext context) {
-        return Container(
-          alignment: Alignment.centerLeft,
-          height: 200,
-          width: double.infinity,
-          color: Colors.white,
-          padding: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            // mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const Text(
-                'Task Details',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Title: ${todo[idices].title}',
-                textAlign: TextAlign.left,
-              ),
-              Text('Description: ${todo[idices].description}'),
-              Text('Days Required: ${todo[idices].deadline}'),
-              SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                  child: const Text('Delete'),
-                  onPressed: () {
-                    deleteTodoItem(idices);
-                    Navigator.pop(context);
-                  })
-            ],
+        return GestureDetector(
+          onDoubleTap: () {
+            //when double click on bottomsheet then it will remove
+            Navigator.pop(context);
+          },
+          child: Container(
+            alignment: Alignment.centerLeft,
+            height: 200,
+            width: double.infinity,
+            color: Colors.white,
+            padding: EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const Text(
+                  'Task Details',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Title: ${todo[currentIndex].title}',
+                  textAlign: TextAlign.left,
+                ),
+                Text('Description: ${todo[currentIndex].description}'),
+                Text('Days Required: ${todo[currentIndex].deadline}'),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                    child: const Text('Delete'),
+                    onPressed: () {
+                      deleteTodoItem(currentIndex);
+                      if (mounted) {
+                        setState(() {});
+                      }
+
+                      Navigator.pop(
+                          context); //remove bottomsheet with delete todo item
+                    })
+              ],
+            ),
           ),
         );
       },
