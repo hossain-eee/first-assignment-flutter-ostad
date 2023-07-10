@@ -27,6 +27,7 @@ $ flutter pub get
 
 # Ostad
 মডিউল ৯ এর এসাইনমেন্ট
+
 Create a simple weather app that fetches and displays the current weather conditions for a user's location.
 
 Requirements
@@ -40,3 +41,7 @@ The app should display an error message if there is a problem fetching the weath
 You may use a custom font for the temperature and weather description.
 
 You can use the OpenWeatherMap API or any free weather API to fetch weather data.
+
+## Guidelines
+
+Do not use a weather-specific package or library (e.g. Flutter Weather, OpenWeather).
