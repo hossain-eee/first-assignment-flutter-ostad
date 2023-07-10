@@ -1,16 +1,24 @@
-# module_9_assignment
+# Module_9_assignment
 
-A new Flutter project.
+an app fetches lat and lon and according to lat and lon show weather information. By the top two icon (action) it is basically useless according to ostad instruction but I put there reload facility of data.
 
-## Getting Started
+when data is fetching show loading indicator(circularIndicator widget) until data is reached and we do this by true false. 
+When an error occurs (link is not correct) then show error alert and there are two options one is close the alert box and another is reload/refresh, if i correct the link then by this reload again data will come, this also can be achieved by top two action icon. But keep in mind that when link error is solved then must perform hot reload by Ctrl+S then refresh button will work.
 
-This project is a starting point for a Flutter application.
+make background gradient, when data is not loading then also gradient should display. 
 
-A few resources to get you started if this is your first Flutter project:
+get json data from api using http request. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+getCurrentPosition() method is created for get lat and lon and this lat lon will use api to get data for user current location so api fetch method  getWeatherDataApiFetch() called inside this getCurrentPosition() method and unix to local time and kelvin to celsius conversion method is called inside getWeatherDataApiFetch(). so according to chain getCurrentPosition() is parent method so its call inside initState() and other button onPress() function to refresh the data.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+if any problem occur then first clean flutter and get it again by 
+$ flutter clean
+$ flutter pub get
+
+#Output 
+![Screenshot_1688936593](https://github.com/hossain-eee/flutter-assignment-ostad/assets/101991583/073400e9-beed-4252-8d93-4c99b8f03ba1)
+![Screenshot_1688936604](https://github.com/hossain-eee/flutter-assignment-ostad/assets/101991583/9a29a8f8-db6a-47f1-8d3a-b8fdc4ab22cc)
+![Screenshot_1688936914](https://github.com/hossain-eee/flutter-assignment-ostad/assets/101991583/96b942c2-a66b-46a0-9298-4e57f3d78a58)
+![Screenshot_1688937046](https://github.com/hossain-eee/flutter-assignment-ostad/assets/101991583/ac23acbf-6048-413f-bbb4-183a35fe7281)
+![Screenshot_1688937053](https://github.com/hossain-eee/flutter-assignment-ostad/assets/101991583/20d4d1d0-5b56-46bc-9782-fe66f7286ed0)
+![Screenshot_1688970883](https://github.com/hossain-eee/flutter-assignment-ostad/assets/101991583/0f2067bb-dbb5-4222-a1da-040e3cafb0c4)
