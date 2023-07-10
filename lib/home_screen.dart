@@ -1,11 +1,9 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:geolocator/geolocator.dart';
+import 'render_fetch_data.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -43,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   //get data by api calling
 
-  void getWeatherData(double lat, double lon) async {
+  void getWeatherDataApiFetch(double lat, double lon) async {
     isProgress = true;
     setState(() {});
     try {
@@ -62,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
       update_time = data['dt'];
 
       tempConversion();
-      dateTimeConvert();
+      unixToTimeConvert();
     } catch (e) {
       isError = true;
       print("error Message for me:$e");
@@ -117,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 //utc to local time conversion
-  String dateTimeConvert() {
+  String unixToTimeConvert() {
     int unixTimestamp = update_time; // Example Unix timestamp
     DateTime dateTime =
         DateTime.fromMillisecondsSinceEpoch(unixTimestamp * 1000);
@@ -146,8 +144,8 @@ class _HomeScreenState extends State<HomeScreen> {
       latitude = currentPosition.latitude;
       longitude = currentPosition.longitude;
     }
-
-    getWeatherData(latitude, longitude);
+    //call api fetchi method
+    getWeatherDataApiFetch(latitude, longitude);
 
     setState(() {});
   }
@@ -155,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     //vertical space between widget
-    var size = MediaQuery.of(context).size.height;
+    double size = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter Weather"),
@@ -165,13 +163,13 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                // getWeatherData(latitude, longitude);
+                //refresh the data
                 getCurrentPosition();
               },
               icon: const Icon(Icons.settings)),
           IconButton(
               onPressed: () {
-                // getWeatherData(latitude, longitude);
+                //refresh the data
                 getCurrentPosition();
               },
               icon: const Icon(Icons.add)),
@@ -198,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
 
-        //fetch data insert
+        //fetch data insert, if error occurs then display error text unless load all data
         child: isError
             ? const Center(
                 child: Text(
@@ -209,93 +207,21 @@ class _HomeScreenState extends State<HomeScreen> {
             : Padding(
                 padding: const EdgeInsets.all(30.0),
                 child: Center(
-                  child: isProgress
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : Column(
-                          children: [
-                            SizedBox(
-                              height: size * 0.15,
-                            ),
-                            Text(
-                              location,
-                              style: const TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w700,
-                                color: Color.fromARGB(255, 254, 248, 254),
-                              ),
-                            ),
-                            Text(
-                              // "Updated: $dateTimeConvert",
-                              "Updated: ${dateTimeConvert()}",
-                              style: const TextStyle(
-                                  fontSize: 25,
-                                  color: Color.fromARGB(255, 190, 178, 178)),
-                            ),
-                            SizedBox(
-                              height: size * 0.05,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image.network(
-                                  "https://openweathermap.org/img/wn/$icon.png",
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (_, __, ___) {
-                                    return const Icon(Icons.image);
-                                  },
-                                ),
-
-                                //present Temperature
-                                Text(
-                                  "${temp.toStringAsFixed(0)}°",
-                                  style: GoogleFonts.dancingScript(
-                                      textStyle: TextStyle(
-                                          color: Colors.white, fontSize: 32),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                //max and min temp
-                                Column(
-                                  children: [
-                                    Text(
-                                      "max:  ${temp_max.toStringAsFixed(0)}°",
-                                      style: GoogleFonts.acme(
-                                        fontSize: 20,
-                                        textStyle: const TextStyle(
-                                            color: Color.fromARGB(
-                                                255, 190, 178, 178)),
-                                      ),
-                                    ),
-                                    Text(
-                                      "min:  ${temp_min.toStringAsFixed(0)}°",
-                                      style: GoogleFonts.acme(
-                                        textStyle: const TextStyle(
-                                            fontSize: 20,
-                                            color: Color.fromARGB(
-                                                255, 190, 178, 178)),
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: size * 0.01,
-                            ),
-                            Text(
-                              description,
-                              style: GoogleFonts.teko(
-                                textStyle: const TextStyle(
-                                  fontSize: 40,
-                                  color: Color.fromARGB(255, 190, 178, 178),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                  child:
+                      isProgress //when data is fetching(its take time) then insted of show blank screen show loading indicator
+                          ? const Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : RenderingFetchData(
+                              //data fetch complete now render the data
+                              location: location,
+                              description: description,
+                              icon: icon,
+                              size: size,
+                              temp: temp,
+                              temp_max: temp_max,
+                              temp_min: temp_min,
+                              unixToTimeConvert: unixToTimeConvert),
                 ),
               ),
       ),
